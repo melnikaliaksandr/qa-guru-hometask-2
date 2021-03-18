@@ -30,7 +30,7 @@ public class DataHelper {
         return genderName;
     }
 
-    public static List<String> selectRandomSubjectAndReturnList() {
+    public static String selectRandomSubjectAndReturnList() {
         List<String> selectedSubjects = new LinkedList();
         List<String> subjectList = new LinkedList(Arrays.asList
                 ("Maths", "Arts", "Accounting", "Social Studies", "Biology",
@@ -44,7 +44,8 @@ public class DataHelper {
             subjectList.remove(index);
             countOfSubject--;
         }
-        return selectedSubjects;
+        return selectedSubjects.toString()
+                .replace("[", "").replace("]", "");
     }
 
     public static String selectRandomDayAndReturnNumber() {
@@ -160,10 +161,6 @@ public class DataHelper {
                 break;
         }
         return month;
-    }
-
-    public static String getSubjectWithOutBrackets(List<String> subject) {
-        return subject.toString().replace("[", "").replace("]", "");
     }
 
     public static String getRandomFirstName() {

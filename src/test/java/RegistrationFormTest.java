@@ -36,7 +36,7 @@ public class RegistrationFormTest {
         $(".react-datepicker__year-select").selectOption(year);
         $(".react-datepicker__month-select").selectOption(month);
         String day = DataHelper.selectRandomDayAndReturnNumber();
-        List<String> subjects = DataHelper.selectRandomSubjectAndReturnList();
+        String subjects = DataHelper.selectRandomSubjectAndReturnList();
         String hobbies = DataHelper.selectRandomHobbiesAndReturnName();
         $("#uploadPicture").uploadFile(new File("./src/test/resources/image.jpg"));
         $("#currentAddress").scrollIntoView(true).setValue(currentAddress);
@@ -53,7 +53,7 @@ public class RegistrationFormTest {
                 text(day),
                 text(month),
                 text(year),
-                text(DataHelper.getSubjectWithOutBrackets(subjects)),
+                text(subjects),
                 text(hobbies),
                 text("image.jpg"),
                 text(currentAddress),
