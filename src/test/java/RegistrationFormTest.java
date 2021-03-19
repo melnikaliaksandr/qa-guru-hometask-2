@@ -38,8 +38,8 @@ public class RegistrationFormTest {
         String day = DataHelper.selectRandomDayAndReturnNumber();
         String subjects = DataHelper.selectRandomSubjectAndReturnList();
         String hobbies = DataHelper.selectRandomHobbiesAndReturnName();
-        $("#uploadPicture").uploadFile(new File("./src/test/resources/image.jpg"));
-        $("#currentAddress").scrollIntoView(true).setValue(currentAddress);
+        $("#uploadPicture").uploadFromClasspath("image.jpg");
+        $("#currentAddress").scrollTo().setValue(currentAddress);
         String state = DataHelper.selectRandomStateAndReturnName();
         String city = DataHelper.selectRandomCityAndReturnName(state);
         $("#submit").click();
