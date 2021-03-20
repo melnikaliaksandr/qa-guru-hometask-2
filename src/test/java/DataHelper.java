@@ -1,4 +1,5 @@
 import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.github.javafaker.Faker;
 import java.util.Arrays;
@@ -50,6 +51,7 @@ public class DataHelper {
 
     public static String selectRandomDayAndReturnNumber() {
         ElementsCollection days = $$(".react-datepicker__day")
+                .filter(Condition.not(Condition.cssClass("react-datepicker__day--outside-month")))
                 .shouldBe(CollectionCondition.sizeGreaterThan(0));
         int indexOfElement = faker.number().numberBetween(0, days.size() - 1);
         String numberOfDay = days.get(indexOfElement).text();
